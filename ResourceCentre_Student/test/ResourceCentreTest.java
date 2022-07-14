@@ -162,10 +162,20 @@ public class ResourceCentreTest {
 	public void testDoLoanChromebook() { // shaun
 		//fail("Not yet implemented");
 		// write your code here
-		
-		//ojSFbssiFUBisss
-		
-		
+		// Test if Item list is not null but empty, so that can add a new item
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+
+				
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test if that Chromebook arraylist size is 2?", 2, chromebookList.size());
+				
+		boolean isLoaned =	ResourceCentre.doLoanChromebook(chromebookList, chromebookList.get(0).getAssetTag(), "8/26/2021");
+		assertTrue("Check that CB0011 returns true when loaned",isLoaned);
+		assertEquals("Check that CB0011 availability is false and due date is set",false,chromebookList.get(0).getIsAvailable() && chromebookList.get(0).getDueDate().equals("8/26/2021"));
+				
+		isLoaned = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "8/26/2021");
+		assertFalse("Check that CB0013 is not loaned out as it does not exist",isLoaned);		
 	}
 
 	@Test
@@ -181,6 +191,7 @@ public class ResourceCentreTest {
 		cc2.setIsAvailable(false);
 		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0012");
 		assertTrue("Test if loaned out amcorder CC0012 is returned- true", isReturned);
+		
 		//error
 		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0013");
 		assertFalse("Test if non-existing amcorder CC0013 is returned - false?", isReturned);
