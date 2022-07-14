@@ -170,11 +170,11 @@ public class ResourceCentreTest {
 		ResourceCentre.addChromebook(chromebookList, cb2);
 		assertEquals("Test if that Chromebook arraylist size is 2?", 2, chromebookList.size());
 				
-		boolean isLoaned =	ResourceCentre.doLoanChromebook(chromebookList, chromebookList.get(0).getAssetTag(), "8/26/2021");
+		boolean isLoaned =	ResourceCentre.doLoanChromebook(chromebookList, chromebookList.get(0).getAssetTag(), "7/14/2022");
 		assertTrue("Check that CB0011 returns true when loaned",isLoaned);
-		assertEquals("Check that CB0011 availability is false and due date is set",false,chromebookList.get(0).getIsAvailable() && chromebookList.get(0).getDueDate().equals("8/26/2021"));
+		assertEquals("Check that CB0011 availability is false and due date is set",false,chromebookList.get(0).getIsAvailable() && chromebookList.get(0).getDueDate().equals("7/14/2022"));
 				
-		isLoaned = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "8/26/2021");
+		isLoaned = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "7/14/2022");
 		assertFalse("Check that CB0013 is not loaned out as it does not exist",isLoaned);		
 	}
 
