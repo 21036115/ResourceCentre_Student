@@ -174,8 +174,11 @@ public class ResourceCentre {
 	
 	public static Chromebook inputChromebook() {	
 		Chromebook cb =null;
-		// write your code here
-
+		// write your code here TEST TEST TEST TEST
+		ResourceCentre.setHeader("CAMCORDER LIST");
+		String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
+				"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
+		System.out.println(output);
 		return cb;
 		
 	}	
