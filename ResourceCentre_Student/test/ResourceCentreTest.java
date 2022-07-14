@@ -162,6 +162,10 @@ public class ResourceCentreTest {
 	public void testDoLoanChromebook() { // shaun
 		//fail("Not yet implemented");
 		// write your code here
+		
+		//ojSFbssiFUBisss
+		
+		
 	}
 
 	@Test
