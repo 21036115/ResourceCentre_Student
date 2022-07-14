@@ -233,18 +233,20 @@ public class ResourceCentre {
 			        return true;
 			      }
 			    }
-			    return true;
-			  }
+			    return false;
+			 }
 	 public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
 			    // write your code here
 			    ResourceCentre.viewAllChromebook(chromebookList); 
 			    String tag = Helper.readString("Enter asset tag > ");
 			    String due = Helper.readString("Enter asset tag > ");
 			    boolean isLoaned = doLoanChromebook(chromebookList, tag , due);
-
-			    
-			    
-			  }
+				if (isLoaned == false) {
+					System.out.println("Invalid asset tag");
+				} else {
+					System.out.println("Chromebook " + tag + " loaned out");
+				}    
+	 }
 	
 	//================================= Option 4 Return an item (CRUD - Update)=================================
 	public static boolean doReturnCamcorder(ArrayList<Camcorder> camcorderList,String tag) {
