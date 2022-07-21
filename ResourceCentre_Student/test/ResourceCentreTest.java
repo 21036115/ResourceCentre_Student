@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 // C206 AY2022 SEM1 - Eclipse 21-09 JDK16
 public class ResourceCentreTest {
-	// prepare test data
+	// prepare test data test test
 	private Camcorder cc1;
 	private Camcorder cc2;
 	private Camcorder cc3;
@@ -109,8 +109,8 @@ public class ResourceCentreTest {
 
 		//test if the list of Chromebook retrieved from the SourceCentre is empty
 		String allChromebook= ResourceCentre.retrieveAllChromebook(chromebookList);
-		String testOutput = "";
-		assertEquals("Check that ViewAllCamcorderlist", testOutput, allChromebook);
+		String testOutput2 = "";
+		assertEquals("Check that ViewAllCamcorderlist", testOutput2, allChromebook);
 
 		//Given an empty list, after adding 2 items, test if the size of the list is 2
 		ResourceCentre.addChromebook(chromebookList, cb1);
@@ -120,10 +120,10 @@ public class ResourceCentreTest {
 		//Test if output is the same as list from Source Center
 		allChromebook= ResourceCentre.retrieveAllChromebook(chromebookList);
 
-		testOutput = String.format("%-10s %-30s %-10s %-10s %-20d\n","CB0011", "My Google Chromebook 1st","Yes", "", "Mac OS");
-		testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
-
-		assertEquals("Check that ViewAllCamcorderlist", testOutput, allChromebook);
+		testOutput2 += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st","Yes", "", "Mac OS");
+		testOutput2 += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
+		
+		assertEquals("Check that ViewAllCamcorderlist", testOutput2, allChromebook);
 	}
 
 	@Test
@@ -202,7 +202,21 @@ public class ResourceCentreTest {
 	public void testDoReturnChromebook() { // jes
 		//fail("Not yet implemented");
 		// write your code here
-	}
+			assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+			ResourceCentre.addChromebook(chromebookList, cb1);
+			//error
+			Boolean isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0011");
+			assertFalse("Test if available Chromebook CB0011 is returned -false?", isReturned);		
+			//normal
+			ResourceCentre.addChromebook(chromebookList, cb2);
+			cb2.setIsAvailable(false);
+			isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0012");
+			assertTrue("Test if loaned out chromebook CB0012 is returned- true", isReturned);
+			//error
+			isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0013");
+			assertFalse("Test if non-existing chromebook CB0013 is returned - false?", isReturned);
+		}
+
 
 	@After
 	public void tearDown() throws Exception {
