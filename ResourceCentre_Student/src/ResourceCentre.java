@@ -97,6 +97,7 @@ public class ResourceCentre {
 					System.out.println("Invalid type");
 				}
 				
+				
 
 			} else if (option == 5) {
 				System.out.println("Bye!");
