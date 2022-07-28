@@ -112,7 +112,7 @@ public class ResourceCentre {
 		System.out.println("2. Chromebook");
 	}
 
-	public static void menu() {
+	public static void menu() { // menu
 		ResourceCentre.setHeader("RESOURCE CENTRE APP");
 		System.out.println("1. Display Inventory");
 		System.out.println("2. Add item");
@@ -120,6 +120,7 @@ public class ResourceCentre {
 		System.out.println("4. Return item");
 		System.out.println("5. Quit");
 		Helper.line(80, "-");
+		Helper.line(10, null);
 
 	}
 	
