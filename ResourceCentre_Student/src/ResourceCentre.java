@@ -120,8 +120,6 @@ public class ResourceCentre {
 		System.out.println("4. Return item");
 		System.out.println("5. Quit");
 		Helper.line(80, "-");
-		Helper.line(10, null);
-
 	}
 	
 	public static void setHeader(String header) {
